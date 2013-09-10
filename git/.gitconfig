@@ -1,0 +1,8 @@
+[user]
+	name = Cesar Salgado
+	email = cesarsvs@gmail.com
+[core]
+	editor = vim
+	excludesfile = /home/cesar/.gitignore_global
+[merge]
+	tool = vimdiff
