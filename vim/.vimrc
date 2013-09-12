@@ -29,5 +29,18 @@ function! s:DiffWithSaved()
 endfunction
 com! DiffSaved call s:DiffWithSaved()
 
-
+" open replace dialog for replacing selection
 vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
+
+" With the following (for example, in vimrc), you can visually select text then press ~ to convert the text to UPPER CASE, then to lower case, then to Title Case. Keep pressing ~ until you get the case you want.
+function! TwiddleCase(str)
+  if a:str ==# toupper(a:str)
+    let result = tolower(a:str)
+  elseif a:str ==# tolower(a:str)
+    let result = substitute(a:str,'\(\<\w\+\>\)', '\u\1', 'g')
+  else
+    let result = toupper(a:str)
+  endif
+  return result
+endfunction
+vnoremap ~ ygv"=TwiddleCase(@")<CR>Pgv
