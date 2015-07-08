@@ -13,9 +13,9 @@ set nu " Show line numbers
 "set autoindent
 
 set expandtab " use spaces instead of tab chars
-set tabstop=2 " size of tab char if present
-set shiftwidth=2 " size when use shift command
-set softtabstop=2 " number of spaces inserted when using tab or removed when using backspace
+"set tabstop=2 " size of tab char if present
+"set shiftwidth=2 " size when use shift command
+"set softtabstop=2 " number of spaces inserted when using tab or removed when using backspace
 
 " set hidden " move between buffers without error message
 
