@@ -44,3 +44,6 @@ function! TwiddleCase(str)
   return result
 endfunction
 vnoremap ~ ygv"=TwiddleCase(@")<CR>Pgv
+
+:let mapleader = "-"
+:let maplocalleader = "\\"
