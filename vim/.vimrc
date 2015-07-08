@@ -20,14 +20,14 @@ set expandtab " use spaces instead of tab chars
 " set hidden " move between buffers without error message
 
 " function create the command :DiffSaved  . Use diffoff to exit thie mode
-function! s:DiffWithSaved()
-  let filetype=&ft
-  diffthis
-  vnew | r # | normal! 1Gdd
-  diffthis
-  exe "setlocal bt=nofile bh=wipe nobl noswf ro ft=" . filetype
-endfunction
-com! DiffSaved call s:DiffWithSaved()
+"function! s:DiffWithSaved()
+"  let filetype=&ft
+"  diffthis
+"  vnew | r # | normal! 1Gdd
+"  diffthis
+"  exe "setlocal bt=nofile bh=wipe nobl noswf ro ft=" . filetype
+"endfunction
+"com! DiffSaved call s:DiffWithSaved()
 
 " open replace dialog for replacing selection
 vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
