@@ -1,0 +1,46 @@
+# show recently visited branches and remove duplicates
+gbrv() {
+	local n="${1:-20}"
+	git reflog | grep -o "checkout: moving from .* to " | sed -e 's/checkout: moving from //' -e 's/ to $//' | awk '!x[$0]++' | head -"$n"
+}
+
+# show recently visited branches and DO NOT remove duplicates
+gbrvd() {
+	local n="${1:-20}"
+	git reflog | grep -o "checkout: moving from .* to " | sed -e 's/checkout: moving from //' -e 's/ to $//' | head -"$n"
+}
+
+alias gbcd="git branch --sort=-committerdate"
+
+gstsi() {
+	git stash show -p stash@{"$1"}
+}
+
+alias g-='git checkout -'
+
+# Check out to nth visited branch from now to the past.
+gcob() {
+	git checkout @{-"$1"}
+}
+
+# useful git aliases
+
+# alias gco='git checkout'
+# alias gcm='git checkout master'
+# alias gcb='git checkout -b'
+# alias gmom='git merge origin/master'
+alias gmo='git merge origin/$(git_current_branch)'
+
+# alias ggf  -> git push -f origin {current_branch}
+# alias gpsup='git push --set-upstream origin $(git_current_branch)'
+
+# alias gstl='git stash list'
+# alias gstp='git stash pop'
+# alias gsts='git stash show --text'
+
+
+# Undo a Git merge that hasn't been pushed yet (https://stackoverflow.com/a/14586751)
+# git reset --merge ORIG_HEAD
+
+# Merge all changes from other branch to staged area (without creating any commit) (https://stackoverflow.com/a/41772786)
+# git merge --no-commit --squash branch_name
